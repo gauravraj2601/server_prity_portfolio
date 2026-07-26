@@ -2,13 +2,21 @@ import mongoose from 'mongoose';
 
 const imageSchema=new mongoose.Schema(
   {
+    // Multiple images support
+    images: [
+      {
+        image_url: { type: String, required: true },
+        public_id: { type: String, required: true },
+      }
+    ],
+    // Legacy single image fields for backwards compatibility
     image_url: {
       type: String,
-      required: true,
+      default: '',
     },
     public_id: {
       type: String,
-      required: true,
+      default: '',
     },
     title: {
       type: String,
@@ -24,6 +32,10 @@ const imageSchema=new mongoose.Schema(
     description: {
       type: String,
       default: "",
+    },
+    isBeforeAfter: {
+      type: Boolean,
+      default: false,
     },
   },
   {timestamps: true}
