@@ -16,8 +16,8 @@ app.use(express.json());
 app.use(cors());
 
 // Routes
-app.use('/api/portfolio_images', portfolioImageRoutes);
-app.use('/api/images', portfolioImageRoutes);
+app.use('/api/portfolio_images',portfolioImageRoutes);
+app.use('/api/images',portfolioImageRoutes);
 
 const PORT=process.env.PORT||5000;
 const MONGODB_URI=process.env.MONGODB_URI;
