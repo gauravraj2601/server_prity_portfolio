@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import dns from 'dns';
 import portfolioImageRoutes from './routes/portfolioImageRoutes.js';
+import reelRoutes from './routes/reelRoutes.js';
 
 dns.setServers(['8.8.8.8','8.8.4.4']);
 
@@ -16,8 +17,8 @@ app.use(express.json());
 app.use(cors());
 
 // Routes
-app.use('/api/portfolio_images', portfolioImageRoutes);
-app.use('/api/images', portfolioImageRoutes);
+app.use('/api/portfolio_images',portfolioImageRoutes);
+app.use('/api/reels', reelRoutes);
 
 const PORT=process.env.PORT||5000;
 const MONGODB_URI=process.env.MONGODB_URI;
